@@ -18,9 +18,9 @@ import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener {
 
-	private final int WIDTH = 300;
-	private final int HEIGHT = 300;
-	private final int DOT_SIZE = 10;
+	private final int WIDTH = 600;
+	private final int HEIGHT = 600;
+	private final int DOT_SIZE = 20;
 	private final int ALL_DOTS = 900;
 	private final int RAND_POS = 29;
 	private final int DELAY = 140;
@@ -48,19 +48,19 @@ public class Board extends JPanel implements ActionListener {
 		setBackground(Color.black);
 		setFocusable(true);
 
-		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		setPreferredSize(new Dimension(WIDTH + (WIDTH / 2), HEIGHT));
 		loadImages();
 		initGame();
 	}
 
 	private void loadImages() {
-		ImageIcon iid = new ImageIcon("dot.png");
+		ImageIcon iid = new ImageIcon("dot_20x20.png");
 		ball = iid.getImage();
 
-		ImageIcon iia = new ImageIcon("apple.png");
+		ImageIcon iia = new ImageIcon("apple_20x20.png");
 		apple = iia.getImage();
 
-		ImageIcon iih = new ImageIcon("dot.png");
+		ImageIcon iih = new ImageIcon("dot_20x20.png");
 		head = iih.getImage();
 	}
 
@@ -68,8 +68,8 @@ public class Board extends JPanel implements ActionListener {
 		dots = 3;
 
 		for (int i = 0; i < dots; i++) {
-			x[i] = 50 - i * 10;
-			y[i] = 50;
+			x[i] = 60 - i * 10;
+			y[i] = 60;
 		}
 
 		locateApple();
@@ -107,7 +107,7 @@ public class Board extends JPanel implements ActionListener {
 
 	private void gameOver(Graphics g) {
 		String message = "GAME OVER";
-		Font small = new Font("Helvetica", Font.BOLD, 14);
+		Font small = new Font("Helvetica", Font.BOLD, 40);
 		FontMetrics metric = getFontMetrics(small);
 
 		g.setColor(Color.white);
